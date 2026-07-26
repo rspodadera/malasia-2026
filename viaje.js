@@ -1,5 +1,15 @@
 const viaje = [
   {
+    inicio: "2026-08-09",
+    fin: "2026-08-10",
+    icono: "✈️",
+    lugar: "Rumbo a Malasia",
+    hotel: "Vuelo Saudia Airlines",
+    plan: "Madrid → Jeddah → Kuala Lumpur",
+    siguiente: "🇲🇾 Llegada y primera parada: Malaca"
+  },
+  
+  {
     inicio: "2026-08-10",
     fin: "2026-08-12",
     lugar: "Malaca",
@@ -71,5 +81,14 @@ const viaje = [
     plan: "Petronas · Compras · Ciudad",
     siguiente: "✈️ Regreso a Madrid"
   }
+  {
+  inicio: "2026-08-29",
+  fin: "2026-08-29",
+  icono: "✈️",
+  lugar: "Regreso a España",
+  hotel: "Vuelo Saudia Airlines",
+  plan: "Kuala Lumpur → Jeddah → Madrid",
+  siguiente: "🏠 Fin del viaje · Llegada a casa"
+}
 ];
 
