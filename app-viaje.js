@@ -57,4 +57,5 @@ if (tarjeta) {
 
   tarjeta.innerHTML = contenido;
 
+  }
 }
