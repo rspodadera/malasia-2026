@@ -30,11 +30,19 @@ if (tarjeta) {
              hoy < new Date(item.fin);
     });
 
-    contenido = `
+      contenido = `
       <h2>📍 Hoy estamos en...</h2>
+
       <h3>${etapa.icono} ${etapa.lugar}</h3>
+
       <p>🏨 ${etapa.hotel}</p>
+
       <p>⭐ ${etapa.plan}</p>
+
+      <p>➡️ Próximo:
+      <br>
+      ${etapa.siguiente}
+    </p>
     `;
 
   } else {
