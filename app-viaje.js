@@ -35,13 +35,13 @@ if (tarjeta) {
       ✈️ <strong>Escala en Jeddah</strong><br>
       Llegada: 10 agosto 2026 · 05:50h<br>
       Salida: 10 agosto 2026 · 08:50h<br>
-      <small>Hora local de Arabia Saudí 🇸🇦</small>
+      <small>Hora local de Arabia Saudí 🇸🇦 (+1h respecto a España)</small>
       </p>
 
       <p>
       ✈️ <strong>Llegada a Kuala Lumpur</strong><br>
       10 agosto 2026 · 15:55h<br>
-      <small>Hora local de Malasia 🇲🇾</small>
+      <small>Hora local de Malasia 🇲🇾 (+6h respecto a España)</small>
       </p>
       
       <p>📍 Primera parada: Malaca</p>
