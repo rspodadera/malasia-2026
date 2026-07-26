@@ -1442,3 +1442,10 @@ flex-wrap:wrap;
   display: block;
   margin-top: 6px;
 }
+.back-btn {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+}
