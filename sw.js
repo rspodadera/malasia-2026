@@ -38,6 +38,9 @@ const FILES_TO_CACHE = [
 
 // Instalar y guardar archivos
 self.addEventListener("install", event => {
+
+  self.skipWaiting();
+  
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(FILES_TO_CACHE))
@@ -47,6 +50,9 @@ self.addEventListener("install", event => {
 
 // Activar nueva versión
 self.addEventListener("activate", event => {
+  
+  self.skipWaiting();
+  
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
