@@ -57,7 +57,7 @@ if (tarjeta) {
     `;
 
   }
-
+  console.log("VOY A PINTAR:", contenido);
   tarjeta.innerHTML = contenido;
 
   }
