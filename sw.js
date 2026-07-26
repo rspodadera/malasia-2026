@@ -29,7 +29,9 @@ const FILES_TO_CACHE = [
 
   // JS
   "/malasia-2026/js/app.js",
-
+  "/malasia-2026/js/app-viaje.js",
+  "/malasia-2026/viaje.js",
+  
   // Iconos
   "/malasia-2026/img/icons/icon-192.png",
   "/malasia-2026/img/icons/icon-512.png"
