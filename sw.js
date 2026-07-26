@@ -30,7 +30,7 @@ const FILES_TO_CACHE = [
 
   // JS
   "/malasia-2026/js/app.js",
-  "/malasia-2026/js/app-viaje.js",
+  "/malasia-2026/app-viaje.js",
   "/malasia-2026/viaje.js",
   
   // Iconos
