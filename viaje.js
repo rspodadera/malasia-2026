@@ -5,7 +5,7 @@ const viaje = [
     lugar: "Malaca",
     icono: "🏛️",
     hotel: "Eco Tree Hotel Melaka",
-    plan: "Jonker Street · Río de Malaca · Stadthuys"
+    plan: "Jonker Street · Río de Malaca · Stadthuys",
     siguiente: "🌿 Taman Negara · 12 agosto"
   },
   {
@@ -14,7 +14,7 @@ const viaje = [
     lugar: "Taman Negara",
     icono: "🌿",
     hotel: "Benteng Taman Negara",
-    plan: "Selva · Canopy Walk · Naturaleza"
+    plan: "Selva · Canopy Walk · Naturaleza",
     siguiente: "🍃 Cameron Highlands · 14 agosto"
   },
   {
@@ -23,7 +23,7 @@ const viaje = [
     lugar: "Cameron Highlands",
     icono: "🍃",
     hotel: "De'La Ferns Hotel",
-    plan: "Plantaciones de té · Mercados · Senderos"
+    plan: "Plantaciones de té · Mercados · Senderos",
     siguiente: "🎨 George Town · 16 agosto"
   },
   {
@@ -32,7 +32,7 @@ const viaje = [
     lugar: "George Town",
     icono: "🎨",
     hotel: "Airbnb Penang",
-    plan: "Street Art · Patrimonio UNESCO · Gastronomía"
+    plan: "Street Art · Patrimonio UNESCO · Gastronomía",
     siguiente: "🌴 Tok Aman Bali · 19 agosto"
   },
   {
@@ -50,7 +50,7 @@ const viaje = [
     lugar: "Perhentian",
     icono: "🏝️",
     hotel: "Barat Perhentian Resort",
-    plan: "Playa · Snorkel · Relax"
+    plan: "Playa · Snorkel · Relax",
     siguiente: "🌊 Kuantan · 24 agosto"
   },
   {
@@ -68,7 +68,7 @@ const viaje = [
     lugar: "Kuala Lumpur",
     icono: "🏙️",
     hotel: "Eaton Residence",
-    plan: "Petronas · Compras · Ciudad"
+    plan: "Petronas · Compras · Ciudad",
     siguiente: "✈️ Regreso a Madrid"
   }
 ];
