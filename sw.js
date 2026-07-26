@@ -1,19 +1,42 @@
-const CACHE_NAME = "malasia-2026-v1";
+const CACHE_NAME = "malasia-2026-v2";
 
 const FILES_TO_CACHE = [
+
+  // Páginas principales
   "/malasia-2026/",
   "/malasia-2026/index.html",
   "/malasia-2026/itinerario.html",
   "/malasia-2026/reservas.html",
-  "/malasia-2026/manifest.json",
+  "/malasia-2026/presupuesto.html",
+  "/malasia-2026/consejos.html",
+  "/malasia-2026/emergencias.html",
+  "/malasia-2026/gastronomia.html",
+  "/malasia-2026/compras.html",
+  "/malasia-2026/antes-de-salir.html",
 
+  // Destinos
+  "/malasia-2026/destinos/malaca.html",
+  "/malasia-2026/destinos/taman-negara.html",
+  "/malasia-2026/destinos/cameron-highlands.html",
+  "/malasia-2026/destinos/george-town.html",
+  "/malasia-2026/destinos/perhentian.html",
+  "/malasia-2026/destinos/kuala-lumpur.html",
+
+  // CSS
   "/malasia-2026/css/style.css",
+  "/malasia-2026/css/mobile.css",
+  "/malasia-2026/css/variables.css",
 
+  // JS
+  "/malasia-2026/js/app.js",
+
+  // Iconos
   "/malasia-2026/img/icons/icon-192.png",
   "/malasia-2026/img/icons/icon-512.png"
 ];
 
 
+// Instalar y guardar archivos
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -22,9 +45,28 @@ self.addEventListener("install", event => {
 });
 
 
+// Activar nueva versión
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      )
+    )
+  );
+});
+
+
+// Servir desde caché si no hay internet
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request))
+      .then(response => {
+        return response || fetch(event.request);
+      })
   );
 });
