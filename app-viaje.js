@@ -1,5 +1,4 @@
 const hoy = new Date();
-
 const inicioViaje = new Date("2026-08-10");
 const finViaje = new Date("2026-08-29");
 
