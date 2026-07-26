@@ -1,0 +1,177 @@
+/* =========================================================
+   GUÍA DE MALASIA
+   AJUSTES MÓVIL
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   TABLET / MÓVIL
+========================================================= */
+
+@media (max-width: 767px) {
+
+
+    /* CONTENEDOR */
+
+    .container {
+
+        width: calc(100% - 1.5rem);
+
+    }
+
+
+
+    /* TIPOGRAFÍA */
+
+    h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    h2 {
+
+        font-size: 1.45rem;
+
+    }
+
+
+    h3 {
+
+        font-size: 1.1rem;
+
+    }
+
+
+
+    /* HERO */
+
+    .hero {
+
+        height: 240px;
+
+        border-radius: var(--radius-lg);
+
+    }
+
+
+    .hero-overlay {
+
+        padding: var(--space-4);
+
+    }
+
+
+    .hero-title {
+
+        font-size: 1.8rem;
+
+    }
+
+
+
+    /* GRIDS */
+
+    .grid-2,
+    .grid-3 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .quick-info {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+
+    /* TARJETAS */
+
+    .card,
+    .hotel-content,
+    .place-content,
+    .restaurant-card,
+    .shopping-card {
+
+        padding: var(--space-4);
+
+    }
+
+
+
+    /* BOTONES */
+
+    .actions {
+
+        flex-direction:column;
+
+    }
+
+
+    .action-button {
+
+        width:100%;
+
+    }
+
+
+    .btn {
+
+        width:100%;
+
+    }
+
+
+
+    /* NAVEGACIÓN DESTINOS */
+
+    .destination-nav {
+
+        flex-direction:column;
+
+    }
+
+
+    .destination-nav a {
+
+        width:100%;
+
+    }
+
+
+
+    /* MAPAS */
+
+    .map-container {
+
+        height:250px;
+
+    }
+
+
+
+    /* IMÁGENES */
+
+    .feature-image img {
+
+        height:180px;
+
+    }
+
+
+
+    /* TIMELINE */
+
+    .timeline-content {
+
+        padding:var(--space-4);
+
+    }
+
+
+}
