@@ -1,6 +1,6 @@
-const hoy = new Date();
-const inicioViaje = new Date("2026-08-10T00:00:00");
-const finViaje = new Date("2026-08-29T23:59:59");
+const hoy = new Date("2026-07-27");
+const inicioViaje = new Date("2026-08-10");
+const finViaje = new Date("2026-08-29");
 
 const tarjeta = document.getElementById("today-card");
 
