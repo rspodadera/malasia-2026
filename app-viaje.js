@@ -33,10 +33,10 @@ if (tarjeta) {
 
       <p>
       ✈️ <strong>Escala en Jeddah</strong><br>
-      Llegada: 10 agosto 2026 · 05:50h<br>
-      <small>Hora local Arabia Saudí 🇸🇦 · 04:50h en España 🇪🇸</small><br>
-      Salida: 10 agosto 2026 · 08:50h<br>
-      <small>Hora local Arabia Saudí 🇸🇦 · 07:50h en España 🇪🇸</small>
+      Llegada: 10 agosto 2026 · 23:55h<br>
+      <small>Hora local Arabia Saudí 🇸🇦 · 22:55h en España 🇪🇸</small><br>
+      Salida: 10 agosto 2026 · 01:55h<br>
+      <small>Hora local Arabia Saudí 🇸🇦 · 00:55h en España 🇪🇸</small>
       </p>
 
       <p>
