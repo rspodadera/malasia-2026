@@ -1,17 +1,17 @@
-const hoy = new Date("2026-07-27T00:00:00");
+const hoy = new Date();
+
 const inicioViaje = new Date("2026-08-10T00:00:00");
 const finViaje = new Date("2026-08-29T23:59:59");
+
+const tarjeta = document.getElementById("today-card");
 
 console.log("HOY:", hoy);
 console.log("INICIO:", inicioViaje);
 console.log("ANTES:", hoy < inicioViaje);
-
-const tarjeta = document.getElementById("today-card");
-
 console.log(viaje);
 
 if (tarjeta) {
-
+  console.log("TARJETA ENCONTRADA");
   let contenido = "";
 
   if (hoy < inicioViaje) {
@@ -19,7 +19,7 @@ if (tarjeta) {
     const dias = Math.ceil(
       (inicioViaje - hoy) / (1000 * 60 * 60 * 24)
     );
-
+  console.log("CONTENIDO:", contenido);
     contenido = `
       <h2>🇲🇾 Próxima aventura</h2>
       <h3>Malasia 2026</h3>
