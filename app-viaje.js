@@ -24,9 +24,28 @@ if (tarjeta) {
       <h2>🇲🇾 Próxima aventura</h2>
       <h3>Malasia 2026</h3>
       <p>⏳ Faltan ${dias} días para el viaje</p>
-      <p>✈️ Llegada: 10 agosto 2026</p>
+      
+      <p> 
+      ✈️ <strong>Salida desde Madrid</strong><br>
+      9 agosto 2026 · 16:40h<br>
+      <small>Hora local de Madrid 🇪🇸</small>
+      </p>
+
+      <p>
+      ✈️ <strong>Escala en Jeddah</strong><br>
+      Llegada: 10 agosto 2026 · 05:50h<br>
+      Salida: 10 agosto 2026 · 08:50h<br>
+      <small>Hora local de Arabia Saudí 🇸🇦</small>
+      </p>
+
+      <p>
+      ✈️ <strong>Llegada a Kuala Lumpur</strong><br>
+      10 agosto 2026 · 15:55h<br>
+      <small>Hora local de Malasia 🇲🇾</small>
+      </p>
+      
       <p>📍 Primera parada: Malaca</p>
-    `;
+      `;
 
   } else if (hoy <= finViaje) {
 
