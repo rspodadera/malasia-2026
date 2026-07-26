@@ -13,6 +13,7 @@ const FILES_TO_CACHE = [
   "/malasia-2026/gastronomia.html",
   "/malasia-2026/compras.html",
   "/malasia-2026/antes-de-salir.html",
+  "/malasia-2026/emergencias.html",
 
   // Destinos
   "/malasia-2026/destinos/malaca.html",
