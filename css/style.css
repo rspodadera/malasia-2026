@@ -1488,3 +1488,19 @@ summary {
   line-height: 1.6;
   margin-bottom: 25px;
 }
+.destino-card {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  margin: 15px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.destino-card h2 {
+  margin-top: 0;
+}
+
+.destino-card .map-link {
+  display: inline-block;
+  margin-top: 10px;
+}
