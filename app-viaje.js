@@ -31,19 +31,9 @@ if (tarjeta) {
     });
 
       contenido = `
-      <h2>📍 Hoy estamos en...</h2>
-
-      <h3>${etapa.icono} ${etapa.lugar}</h3>
-
-      <p>🏨 ${etapa.hotel}</p>
-
-      <p>⭐ ${etapa.plan}</p>
-
-      <p>➡️ Próximo:
-      <br>
-      ${etapa.siguiente}
-    </p>
-    `;
+      <h2>PRUEBA: ${hoy}</h2>
+      <h3>${etapa ? etapa.lugar : "NO HAY ETAPA"}</h3>
+      `;
 
   } else {
 
