@@ -1461,3 +1461,30 @@ flex-wrap:wrap;
   font-weight: bold;
   text-decoration: none;
 }
+/* Espaciado contenido gastronomía y tarjetas */
+
+.card-content h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.card-content .tag {
+  margin-bottom: 10px;
+}
+
+details {
+  margin-bottom: 20px;
+}
+
+summary {
+  padding: 12px;
+}
+.container > p {
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
