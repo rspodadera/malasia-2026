@@ -25,19 +25,30 @@ if (tarjeta) {
 
   } else if (hoy <= finViaje) {
 
+  const etapa = viaje.find(item => {
+
+    const inicio = new Date(item.inicio + "T00:00:00");
+    const fin = new Date(item.fin + "T23:59:59");
+
+    return hoy >= inicio && hoy <= fin;
+
+  });
+
+  if (etapa) {
+
     contenido = `
-      <h2>📍 Estamos de viaje</h2>
-      <h3>Malasia 2026</h3>
-      <p>Hoy es ${hoy.toLocaleDateString()}</p>
-      <p>🏝️ Disfrutando del itinerario</p>
+      <h2>📍 Hoy estamos en...</h2>
+      <h3>${etapa.icono} ${etapa.lugar}</h3>
+      <p>🏨 ${etapa.hotel}</p>
+      <p>⭐ ${etapa.plan}</p>
+      <p>➡️ Próximo: ${etapa.siguiente}</p>
     `;
 
   } else {
 
     contenido = `
-      <h2>✨ Viaje completado</h2>
-      <h3>Malasia 2026</h3>
-      <p>Guarda tus recuerdos de esta aventura</p>
+      <h2>📍 Estamos de viaje</h2>
+      <p>No hay etapa encontrada</p>
     `;
 
   }
