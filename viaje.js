@@ -80,15 +80,15 @@ const viaje = [
     hotel: "Eaton Residence",
     plan: "Petronas · Compras · Ciudad",
     siguiente: "✈️ Regreso a Madrid"
-  }
+  },
   {
-  inicio: "2026-08-29",
-  fin: "2026-08-29",
-  icono: "✈️",
-  lugar: "Regreso a España",
-  hotel: "Vuelo Saudia Airlines",
-  plan: "Kuala Lumpur → Jeddah → Madrid",
-  siguiente: "🏠 Fin del viaje · Llegada a casa"
-}
+    inicio: "2026-08-29",
+    fin: "2026-08-29",
+    icono: "✈️",
+    lugar: "Regreso a España",
+    hotel: "Vuelo Saudia Airlines",
+    plan: "Kuala Lumpur → Jeddah → Madrid",
+    siguiente: "🏠 Fin del viaje · Llegada a casa"
+  }
 ];
 
