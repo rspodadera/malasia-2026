@@ -1,4 +1,4 @@
-const CACHE_NAME = "malasia-2026-v5";
+const CACHE_NAME = "malasia-2026-v6";
 
 const FILES_TO_CACHE = [
 
