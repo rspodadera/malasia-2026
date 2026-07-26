@@ -5,6 +5,8 @@ const finViaje = new Date("2026-08-29");
 
 const tarjeta = document.getElementById("today-card");
 
+console.log(viaje);
+
 if (tarjeta) {
 
   let contenido = "";
