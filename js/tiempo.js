@@ -1,408 +1,372 @@
-// =======================================
-// Tiempo Malasia 2026
-// Datos meteorológicos en tiempo real
-// =======================================
-
+/*
+  Tiempo Malasia 2026
+  Datos meteorológicos en tiempo real
+*/
 
 const destinosTiempo = [
 
 {
-nombre: "🏮 Malaca",
-lat: 2.1896,
-lon: 102.2501
+nombre:"🏮 Malaca",
+lat:2.1896,
+lon:102.2501
 },
 
 {
-nombre: "🌿 Taman Negara",
-lat: 4.3833,
-lon: 102.4000
+nombre:"🌿 Taman Negara",
+lat:4.3833,
+lon:102.4167
 },
 
 {
-nombre: "⛰️ Cameron Highlands",
-lat: 4.4721,
-lon: 101.3768
+nombre:"⛰️ Cameron Highlands",
+lat:4.4721,
+lon:101.3801
 },
 
 {
-nombre: "🎨 Georgetown · Penang",
-lat: 5.4141,
-lon: 100.3288
+nombre:"🎨 Georgetown · Penang",
+lat:5.4141,
+lon:100.3288
 },
 
 {
-nombre: "🌴 Tok Aman Bali",
-lat: 6.1000,
-lon: 102.4500
+nombre:"🌴 Tok Aman Bali",
+lat:6.1025,
+lon:102.4015
 },
 
 {
-nombre: "🏝️ Perhentian",
-lat: 5.9167,
-lon: 102.7167
+nombre:"🏝️ Perhentian",
+lat:5.9167,
+lon:102.7333
 },
 
 {
-nombre: "🌊 Kuantan",
-lat: 3.8077,
-lon: 103.3260
+nombre:"🌊 Kuantan",
+lat:3.8077,
+lon:103.3260
 },
 
 {
-nombre: "🏙️ Kuala Lumpur",
-lat: 3.1390,
-lon: 101.6869
+nombre:"🏙️ Kuala Lumpur",
+lat:3.1390,
+lon:101.6869
 }
 
 ];
 
 
 
+async function cargarTiempo(){
+
+const contenedor=document.getElementById("lista-tiempo");
+
+if(!contenedor){
+return;
+}
 
 
-function describirTiempo(codigo) {
+contenedor.innerHTML="🌦️ Actualizando condiciones meteorológicas...";
 
 
-const estados = {
 
-0: "☀️ Despejado",
-
-1: "🌤️ Principalmente despejado",
-
-2: "⛅ Parcialmente nublado",
-
-3: "☁️ Nublado",
-
-45: "🌫️ Niebla",
-
-48: "🌫️ Niebla",
-
-51: "🌦️ Llovizna ligera",
-
-53: "🌦️ Llovizna",
-
-55: "🌧️ Llovizna intensa",
-
-61: "🌧️ Lluvia ligera",
-
-63: "🌧️ Lluvia moderada",
-
-65: "🌧️ Lluvia intensa",
-
-80: "🌦️ Chubascos",
-
-81: "🌧️ Chubascos moderados",
-
-82: "⛈️ Chubascos fuertes",
-
-95: "⛈️ Tormenta",
-
-96: "⛈️ Tormenta con granizo",
-
-99: "⛈️ Tormenta fuerte"
-
-};
+let html="";
 
 
-return estados[codigo] || "🌦️ Tiempo variable";
+for(const destino of destinosTiempo){
+
+
+try{
+
+
+const url =
+`https://api.open-meteo.com/v1/forecast?latitude=${destino.lat}&longitude=${destino.lon}&current=temperature_2m,weather_code,wind_speed_10m&hourly=precipitation_probability&timezone=Asia%2FKuala_Lumpur`;
+
+
+const respuesta=await fetch(url);
+
+
+const datos=await respuesta.json();
+
+
+const temperatura=
+datos.current.temperature_2m;
+
+
+const viento=
+datos.current.wind_speed_10m;
+
+
+const codigo=
+datos.current.weather_code;
+
+
+const lluvia=
+datos.hourly.precipitation_probability[0];
+
+
+html += crearTarjetaTiempo(
+destino.nombre,
+temperatura,
+viento,
+lluvia,
+codigo
+);
+
+
+}catch(error){
+
+
+html += crearTarjetaTiempo(
+destino.nombre,
+"--",
+"--",
+"--",
+0
+);
+
+
+}
+
 
 }
 
 
 
+contenedor.innerHTML=
+`
+<p class="actualizacion">
+Última actualización: ${new Date().toLocaleTimeString("es-ES",
+{
+hour:"2-digit",
+minute:"2-digit"
+})}
+</p>
 
+${html}
 
-async function cargarTiempo() {
-
-let datosTiempo = [];
-  
-const contenedor = document.getElementById("lista-tiempo");
-
-
-if (!contenedor) return;
-
-
-contenedor.innerHTML = "";
-
-
-
-for (const destino of destinosTiempo) {
-
-
-const url =
-
-`https://api.open-meteo.com/v1/forecast?latitude=${destino.lat}&longitude=${destino.lon}&current=temperature_2m,weather_code,wind_speed_10m&timezone=Asia%2FKuala_Lumpur`;
+`;
 
 
 
-try {
+generarAlertas();
+
+}
+// Crear tarjeta de cada destino
+
+function crearTarjetaTiempo(
+nombre,
+temperatura,
+viento,
+lluvia,
+codigo
+){
 
 
-const respuesta = await fetch(url);
-
-
-const datos = await respuesta.json();
+const estado = obtenerEstadoTiempo(codigo);
 
 
 
-const actual = datos.current;
-
- datosTiempo.push({
-
-nombre: destino.nombre,
-
-weather_code: actual.weather_code,
-
-wind_speed: actual.wind_speed_10m
-
-});
+let recomendacion="";
 
 
-contenedor.innerHTML += `
+if(nombre.includes("Taman Negara")){
 
 
-<div class="weather-card">
+recomendacion=
+`
+<br>
+💡 Revisar antes de:
+<br>
+🌉 Canopy Walk
+<br>
+🌙 Night Walk
+`;
+
+}
 
 
-<h3>${destino.nombre}</h3>
+if(nombre.includes("Perhentian")){
+
+
+recomendacion=
+`
+<br>
+💡 Especial atención:
+<br>
+🌊 Estado del mar
+<br>
+🚤 Traslados en barco
+`;
+
+}
+
+
+
+return `
+
+<div class="tiempo-card">
+
+
+<h3>${nombre}</h3>
 
 
 <p>
 
 🌡️ Temperatura:
-<strong>${Math.round(actual.temperature_2m)} ºC</strong>
-
-<br><br>
-
-${describirTiempo(actual.weather_code)}
-
-<br><br>
-
-💨 Viento:
-${Math.round(actual.wind_speed_10m)} km/h
+<strong>${temperatura} ºC</strong>
 
 </p>
-
-
-</div>
-
-
-`;
-
-
-
-}
-
-catch(error) {
-
-
-contenedor.innerHTML += `
-
-
-<div class="weather-card">
-
-
-<h3>${destino.nombre}</h3>
 
 
 <p>
 
-❌ No disponible
+${estado}
 
 </p>
 
 
-</div>
+<p>
 
+💨 Viento:
+${viento} km/h
+
+</p>
+
+
+<p>
+
+🌧️ Probabilidad lluvia:
+<strong>${lluvia}%</strong>
+
+</p>
+
+
+${recomendacion}
+
+
+</div>
 
 `;
 
 }
 
 
-}
 
 
 
-const fecha = new Date();
+// Traducción del código meteorológico
 
 
-const etiqueta = document.getElementById("actualizacion-tiempo");
+function obtenerEstadoTiempo(codigo){
 
 
-if (etiqueta) {
+if(codigo===0){
 
-
-etiqueta.innerHTML =
-
-"Última actualización: "
-
-+
-
-fecha.toLocaleTimeString(
-"es-ES",
-{
-hour: "2-digit",
-minute: "2-digit"
-}
-);
-
+return "☀️ Despejado";
 
 }
 
 
+if(codigo===1 || codigo===2){
 
-}
-
-function generarAlertas(datosTiempo) {
-
-
-const caja = document.getElementById("alertas-tiempo");
-
-
-if (!caja) return;
-
-
-let alertas = [];
-
-
-
-for (const dato of datosTiempo) {
-
-
-if (dato.weather_code >= 95) {
-
-alertas.push(
-"⛈️ Posibles tormentas en " + dato.nombre
-);
+return "🌤️ Parcialmente nublado";
 
 }
 
 
-else if (dato.weather_code >= 61) {
+if(codigo===3){
 
-alertas.push(
-"🌧️ Lluvia prevista en " + dato.nombre
-);
+return "☁️ Nublado";
 
 }
 
 
-if (dato.wind_speed >= 30) {
+if(codigo>=51 && codigo<=67){
 
-alertas.push(
-"💨 Viento fuerte en " + dato.nombre
-);
+return "🌧️ Lluvia";
 
 }
 
+
+if(codigo>=80 && codigo<=82){
+
+return "🌦️ Chubascos";
+
+}
+
+
+if(codigo>=95){
+
+return "⛈️ Tormenta";
+
+}
+
+
+return "🌥️ Variable";
+
+
+}
+// Alertas inteligentes según condiciones
+
+function generarAlertas(){
+
+
+const caja =
+document.getElementById("alertas-tiempo");
+
+
+if(!caja){
+
+return;
 
 }
 
 
 
-if (alertas.length === 0) {
-
-
-caja.innerHTML =
-
-"✅ Sin alertas meteorológicas importantes actualmente.";
-
-
-}
-
-else {
-
-
-caja.innerHTML =
-
-"⚠️ <strong>Revisar:</strong><br><br>"
-
-+
-
-alertas.join("<br><br>");
-
-}
-
-generarAlertas(datosTiempo);
-
-}
+let alertas=[];
 
 
 
-function generarAlertas(datosTiempo) {
-
-
-const caja = document.getElementById("alertas-tiempo");
-
-
-if (!caja) return;
-
-
-let alertas = [];
+// Aquí dejamos preparado el sistema.
+// En futuras mejoras podremos añadir
+// avisos automáticos por lluvia,
+// viento o tormentas.
 
 
 
-for (const dato of datosTiempo) {
+if(alertas.length===0){
 
 
-if (dato.weather_code >= 95) {
+caja.innerHTML=
+`
+✅ Sin alertas meteorológicas importantes actualmente.
+`;
 
-alertas.push(
-"⛈️ Posibles tormentas en " + dato.nombre
-);
+
+
+}else{
+
+
+caja.innerHTML=
+`
+⚠️ <strong>Revisar:</strong>
+
+<br><br>
+
+${alertas.join("<br>")}
+
+`;
 
 }
 
-
-else if (dato.weather_code >= 61) {
-
-alertas.push(
-"🌧️ Lluvia prevista en " + dato.nombre
-);
-
-}
-
-
-if (dato.wind_speed >= 30) {
-
-alertas.push(
-"💨 Viento fuerte en " + dato.nombre
-);
-
-}
 
 
 }
 
 
 
-if (alertas.length === 0) {
 
-
-caja.innerHTML =
-
-"✅ Sin alertas meteorológicas importantes actualmente.";
-
-
-}
-
-else {
-
-
-caja.innerHTML =
-
-"⚠️ <strong>Revisar:</strong><br><br>"
-
-+
-
-alertas.join("<br><br>");
-
-}
-
-
-}
-
-
+// Iniciar carga
 
 cargarTiempo();
