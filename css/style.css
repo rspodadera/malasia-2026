@@ -1504,3 +1504,37 @@ summary {
   display: inline-block;
   margin-top: 10px;
 }
+/* ==========================
+   TARJETAS TIEMPO REAL
+========================== */
+
+
+.weather-card {
+
+background: #ffffff;
+
+border-radius: 15px;
+
+padding: 15px;
+
+margin-bottom: 15px;
+
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+}
+
+
+.weather-card h3 {
+
+margin-top: 0;
+
+font-size: 1.1rem;
+
+}
+
+
+.weather-card p {
+
+line-height: 1.6;
+
+}
