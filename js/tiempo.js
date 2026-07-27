@@ -191,9 +191,14 @@ ${html}
 function crearTarjetaPrevision(destino, diaria){
 
 
+let html = "";
+
+
+for(let i = 0; i < 3; i++){
+
 
 const fecha =
-new Date(diaria.time[0])
+new Date(diaria.time[i])
 .toLocaleDateString(
 "es-ES",
 {
@@ -206,7 +211,7 @@ month:"2-digit"
 
 const estado =
 obtenerEstadoTiempo(
-diaria.weather_code[0]
+diaria.weather_code[i]
 );
 
 
@@ -222,7 +227,6 @@ recomendacion =
 
 `
 <br>
-
 💡 Revisar:
 
 <br>
@@ -236,7 +240,6 @@ recomendacion =
 `;
 
 }
-
 
 
 
@@ -256,12 +259,11 @@ recomendacion =
 
 <br>
 
-🚤 Traslado en barco
+🚤 Barco Kuala Besut ↔ isla
 
 `;
 
 }
-
 
 
 
@@ -290,6 +292,70 @@ recomendacion =
 
 
 
+html +=
+
+`
+
+<div class="forecast-day">
+
+
+<h4>
+
+📅 ${fecha}
+
+</h4>
+
+
+<p>
+
+${estado}
+
+</p>
+
+
+<p>
+
+🌡️ Máx:
+<strong>
+${diaria.temperature_2m_max[i]} ºC
+</strong>
+
+<br>
+
+🌡️ Mín:
+<strong>
+${diaria.temperature_2m_min[i]} ºC
+</strong>
+
+</p>
+
+
+
+<p>
+
+🌧️ Lluvia:
+<strong>
+${diaria.precipitation_probability_max[i]}%
+</strong>
+
+</p>
+
+
+
+${i===0 ? recomendacion : ""}
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
 return `
 
 
@@ -303,61 +369,7 @@ ${destino.nombre}
 </h3>
 
 
-<p>
-
-📅 Próximo día:
-
-<strong>
-${fecha}
-</strong>
-
-</p>
-
-
-<p>
-
-🌡️ Máxima:
-
-<strong>
-${diaria.temperature_2m_max[0]} ºC
-</strong>
-
-
-<br>
-
-
-🌡️ Mínima:
-
-<strong>
-${diaria.temperature_2m_min[0]} ºC
-</strong>
-
-</p>
-
-
-
-<p>
-
-${estado}
-
-</p>
-
-
-
-<p>
-
-🌧️ Probabilidad lluvia:
-
-<strong>
-${diaria.precipitation_probability_max[0]}%
-</strong>
-
-</p>
-
-
-
-${recomendacion}
-
+${html}
 
 
 </div>
@@ -366,8 +378,6 @@ ${recomendacion}
 `;
 
 }
-
-
 
 
 
