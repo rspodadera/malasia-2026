@@ -1,5 +1,7 @@
+// =======================================
 // Tiempo Malasia 2026
 // Datos meteorológicos en tiempo real
+// =======================================
 
 
 const destinosTiempo = [
@@ -23,7 +25,7 @@ lon: 101.3768
 },
 
 {
-nombre: "🎨 Georgetown",
+nombre: "🎨 Georgetown · Penang",
 lat: 5.4141,
 lon: 100.3288
 },
@@ -56,62 +58,74 @@ lon: 101.6869
 
 
 
-function interpretarTiempo(codigo) {
+
+
+function describirTiempo(codigo) {
 
 
 const estados = {
 
-0:"☀️ Despejado",
+0: "☀️ Despejado",
 
-1:"🌤️ Principalmente despejado",
+1: "🌤️ Principalmente despejado",
 
-2:"⛅ Parcialmente nublado",
+2: "⛅ Parcialmente nublado",
 
-3:"☁️ Nublado",
+3: "☁️ Nublado",
 
-45:"🌫️ Niebla",
+45: "🌫️ Niebla",
 
-51:"🌦️ Llovizna",
+48: "🌫️ Niebla",
 
-61:"🌧️ Lluvia",
+51: "🌦️ Llovizna ligera",
 
-63:"🌧️ Lluvia moderada",
+53: "🌦️ Llovizna",
 
-65:"🌧️ Lluvia intensa",
+55: "🌧️ Llovizna intensa",
 
-80:"🌦️ Chubascos",
+61: "🌧️ Lluvia ligera",
 
-81:"🌧️ Chubascos moderados",
+63: "🌧️ Lluvia moderada",
 
-82:"⛈️ Chubascos fuertes",
+65: "🌧️ Lluvia intensa",
 
-95:"⛈️ Tormenta"
+80: "🌦️ Chubascos",
+
+81: "🌧️ Chubascos moderados",
+
+82: "⛈️ Chubascos fuertes",
+
+95: "⛈️ Tormenta",
+
+96: "⛈️ Tormenta con granizo",
+
+99: "⛈️ Tormenta fuerte"
 
 };
 
 
-return estados[codigo] || "🌦️ Variable";
+return estados[codigo] || "🌦️ Tiempo variable";
 
 }
 
 
 
 
-async function cargarTiempo(){
+
+async function cargarTiempo() {
 
 
 const contenedor = document.getElementById("lista-tiempo");
 
 
-if(!contenedor) return;
+if (!contenedor) return;
+
+
+contenedor.innerHTML = "";
 
 
 
-contenedor.innerHTML="";
-
-
-
-for(const destino of destinosTiempo){
+for (const destino of destinosTiempo) {
 
 
 const url =
@@ -120,10 +134,11 @@ const url =
 
 
 
-try{
+try {
 
 
 const respuesta = await fetch(url);
+
 
 const datos = await respuesta.json();
 
@@ -144,15 +159,17 @@ contenedor.innerHTML += `
 
 <p>
 
-🌡️ ${Math.round(actual.temperature_2m)} ºC
+🌡️ Temperatura:
+<strong>${Math.round(actual.temperature_2m)} ºC</strong>
 
-<br>
+<br><br>
 
-${interpretarTiempo(actual.weather_code)}
+${describirTiempo(actual.weather_code)}
 
-<br>
+<br><br>
 
-💨 Viento: ${Math.round(actual.wind_speed_10m)} km/h
+💨 Viento:
+${Math.round(actual.wind_speed_10m)} km/h
 
 </p>
 
@@ -166,20 +183,30 @@ ${interpretarTiempo(actual.weather_code)}
 
 }
 
-catch(error){
+catch(error) {
 
 
 contenedor.innerHTML += `
 
+
+<div class="weather-card">
+
+
+<h3>${destino.nombre}</h3>
+
+
 <p>
 
-❌ No disponible: ${destino.nombre}
+❌ No disponible
 
 </p>
 
+
+</div>
+
+
 `;
 
-
 }
 
 
@@ -187,24 +214,32 @@ contenedor.innerHTML += `
 
 
 
-const ahora = new Date();
+const fecha = new Date();
 
 
 const etiqueta = document.getElementById("actualizacion-tiempo");
 
 
-if(etiqueta){
+if (etiqueta) {
+
 
 etiqueta.innerHTML =
+
 "Última actualización: "
+
 +
-ahora.toLocaleTimeString("es-ES",
+
+fecha.toLocaleTimeString(
+"es-ES",
 {
-hour:"2-digit",
-minute:"2-digit"
-});
+hour: "2-digit",
+minute: "2-digit"
+}
+);
+
 
 }
+
 
 
 }
