@@ -328,4 +328,81 @@ generarAlertas(datosTiempo);
 
 }
 
+
+
+function generarAlertas(datosTiempo) {
+
+
+const caja = document.getElementById("alertas-tiempo");
+
+
+if (!caja) return;
+
+
+let alertas = [];
+
+
+
+for (const dato of datosTiempo) {
+
+
+if (dato.weather_code >= 95) {
+
+alertas.push(
+"⛈️ Posibles tormentas en " + dato.nombre
+);
+
+}
+
+
+else if (dato.weather_code >= 61) {
+
+alertas.push(
+"🌧️ Lluvia prevista en " + dato.nombre
+);
+
+}
+
+
+if (dato.wind_speed >= 30) {
+
+alertas.push(
+"💨 Viento fuerte en " + dato.nombre
+);
+
+}
+
+
+}
+
+
+
+if (alertas.length === 0) {
+
+
+caja.innerHTML =
+
+"✅ Sin alertas meteorológicas importantes actualmente.";
+
+
+}
+
+else {
+
+
+caja.innerHTML =
+
+"⚠️ <strong>Revisar:</strong><br><br>"
+
++
+
+alertas.join("<br><br>");
+
+}
+
+
+}
+
+
+
 cargarTiempo();
