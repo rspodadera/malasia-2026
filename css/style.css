@@ -1550,3 +1550,19 @@ line-height: 1.6;
     margin-top: 0;
     margin-bottom: 12px;
 }
+.forecast-day {
+
+border-top: 1px solid #eee;
+
+padding-top: 10px;
+
+margin-top: 10px;
+
+}
+
+
+.forecast-day h4 {
+
+margin-bottom: 8px;
+
+}
