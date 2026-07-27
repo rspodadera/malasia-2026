@@ -24,10 +24,8 @@
 
 
 <p>
-
-Previsión meteorológica y condiciones importantes
-durante nuestra ruta.
-
+Previsión meteorológica en tiempo real
+y condiciones importantes durante nuestra ruta.
 </p>
 
 
@@ -36,36 +34,32 @@ durante nuestra ruta.
 
 <div class="destino-card">
 
-
 <h2>✈️ Kuala Lumpur · Llegada</h2>
-
 
 <p>
 
-10 agosto · 15:55
+📅 10 agosto · 15:55
 
 <br><br>
 
-🚗 Recogida de coche en KLIA y salida hacia Malaca.
+🚗 Recogida del coche en KLIA
+y salida hacia Malaca.
 
 <br><br>
 
-Revisar:
+Revisar antes de conducir:
+
+<br><br>
+
+🌧️ Lluvia durante la ruta
 
 <br>
-
-🌧️ Lluvia durante la conducción
-
-<br>
-
 🌙 Visibilidad al anochecer
 
 <br>
-
-🚗 Estado de carretera
+🚗 Estado de la carretera
 
 </p>
-
 
 </div>
 
@@ -73,10 +67,9 @@ Revisar:
 
 
 
-<!-- RUTA -->
+<!-- TRAYECTOS -->
 
 <div class="destino-card">
-
 
 <h2>🚗 Trayectos en coche</h2>
 
@@ -87,31 +80,31 @@ Consultar previsión antes de cada desplazamiento:
 
 <br><br>
 
-🏮 KLIA → Malaca
+✈️ KLIA → Malaca
 
 <br>
 
-🌿 Malaca → Taman Negara
+🏮 Malaca → Taman Negara
 
 <br>
 
-⛰️ Taman Negara → Cameron Highlands
+🌿 Taman Negara → Cameron Highlands
 
 <br>
 
-🎨 Cameron Highlands → Georgetown
+⛰️ Cameron Highlands → Georgetown
 
 <br>
 
-🌴 Georgetown → Tok Aman Bali
+🎨 Georgetown → Tok Aman Bali
 
 <br>
 
-🌊 Kuala Besut → Kuantan
+🌴 Kuala Besut → Kuantan
 
 <br>
 
-🏙️ Kuantan → Kuala Lumpur
+🌊 Kuantan → Kuala Lumpur
 
 </p>
 
@@ -126,26 +119,31 @@ Consultar previsión antes de cada desplazamiento:
 
 <div class="destino-card">
 
-
-<h2>🎯 Actividades condicionadas por el tiempo</h2>
+<h2>🎯 Actividades condicionadas</h2>
 
 
 <p>
 
 🌿 Taman Negara:
 
-<br>
+<br><br>
+
 🌉 Canopy Walk
 
 <br>
+
 🌙 Night Walk
 
 <br><br>
 
+
 🏙️ Kuala Lumpur:
 
+<br><br>
+
+🌌 Kuala Selangor
 <br>
-🌌 Kuala Selangor · luciérnagas / Blue Tears
+Luciérnagas / Blue Tears
 
 </p>
 
@@ -160,29 +158,30 @@ Consultar previsión antes de cada desplazamiento:
 
 <div class="destino-card">
 
-
 <h2>🌊 Perhentian · Estado del mar</h2>
 
 
 <p>
 
-Consultar especialmente:
+Revisar especialmente:
 
 <br><br>
 
 🚤 20 agosto:
+<br>
 Kuala Besut → Perhentian
 
 <br><br>
 
 🚤 24 agosto:
+<br>
 Perhentian → Kuala Besut
 
 <br><br>
 
-Revisar:
+Consultar:
 
-<br>
+<br><br>
 
 🌊 Estado del mar
 
@@ -203,70 +202,53 @@ Revisar:
 
 
 
-<!-- DESTINOS -->
+<!-- TIEMPO REAL -->
 
 <div class="destino-card">
 
+
 <h2>📍 Tiempo por destino</h2>
 
+
+<p id="actualizacion-tiempo">
+
+Última actualización:
+cargando...
+
+</p>
+
+
+
 <div id="lista-tiempo">
+
 
 <p>
 Cargando información meteorológica...
 </p>
 
-</div>
 
 </div>
 
-🏮 Malaca
-
-<br>
-
-🌿 Taman Negara
-
-<br>
-
-⛰️ Cameron Highlands
-
-<br>
-
-🎨 Georgetown
-
-<br>
-
-🌴 Tok Aman Bali
-
-<br>
-
-🏝️ Perhentian
-
-<br>
-
-🌊 Kuantan
-
-<br>
-
-🏙️ Kuala Lumpur
-
-</p>
-
 
 </div>
+
+
 
 
 
 <div class="tip-box">
 
+
 💡 La previsión será especialmente importante
-para decidir actividades de naturaleza y navegación.
-
-</div>
-
+para decidir actividades de naturaleza,
+navegación y conducción.
 
 
 </div>
 
+
+
+</div>
 
 
 
@@ -337,6 +319,9 @@ Más
 
 </nav>
 
+
+
+<script src="js/tiempo.js"></script>
 
 
 </body>
