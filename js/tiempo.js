@@ -114,7 +114,8 @@ return estados[codigo] || "🌦️ Tiempo variable";
 
 async function cargarTiempo() {
 
-
+let datosTiempo = [];
+  
 const contenedor = document.getElementById("lista-tiempo");
 
 
@@ -146,6 +147,15 @@ const datos = await respuesta.json();
 
 const actual = datos.current;
 
+ datosTiempo.push({
+
+nombre: destino.nombre,
+
+weather_code: actual.weather_code,
+
+wind_speed: actual.wind_speed_10m
+
+});
 
 
 contenedor.innerHTML += `
@@ -244,6 +254,78 @@ minute: "2-digit"
 
 }
 
+function generarAlertas(datosTiempo) {
 
+
+const caja = document.getElementById("alertas-tiempo");
+
+
+if (!caja) return;
+
+
+let alertas = [];
+
+
+
+for (const dato of datosTiempo) {
+
+
+if (dato.weather_code >= 95) {
+
+alertas.push(
+"⛈️ Posibles tormentas en " + dato.nombre
+);
+
+}
+
+
+else if (dato.weather_code >= 61) {
+
+alertas.push(
+"🌧️ Lluvia prevista en " + dato.nombre
+);
+
+}
+
+
+if (dato.wind_speed >= 30) {
+
+alertas.push(
+"💨 Viento fuerte en " + dato.nombre
+);
+
+}
+
+
+}
+
+
+
+if (alertas.length === 0) {
+
+
+caja.innerHTML =
+
+"✅ Sin alertas meteorológicas importantes actualmente.";
+
+
+}
+
+else {
+
+
+caja.innerHTML =
+
+"⚠️ <strong>Revisar:</strong><br><br>"
+
++
+
+alertas.join("<br><br>");
+
+}
+
+generarAlertas(datosTiempo);
+
+}
 
 cargarTiempo();
