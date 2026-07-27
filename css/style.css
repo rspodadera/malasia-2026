@@ -1538,3 +1538,15 @@ font-size: 1.1rem;
 line-height: 1.6;
 
 }
+.weather-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.weather-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
